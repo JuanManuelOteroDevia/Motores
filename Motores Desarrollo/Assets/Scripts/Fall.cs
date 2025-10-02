@@ -3,7 +3,7 @@
 public class Fall : MonoBehaviour
 {
     [Header("Spawn")]
-    public Transform spawnPoint; // Asigná el GameObject de spawn en el inspector
+    public Transform spawnPoint; 
 
     void OnCollisionEnter(Collision collision)
     {
@@ -14,11 +14,9 @@ public class Fall : MonoBehaviour
         {
             Debug.Log("☠ El jugador tocó el bloque de muerte");
 
-            // Forzar daño letal para que pierda una vida
             int dañoLetal = PlayerHealth.GetCurrentLives() > 1 ? player.maxHealth : player.maxHealth + 1;
             player.TakeDamage(dañoLetal, transform.position);
 
-            // Teletransportar al punto de spawn sin tocar PlayerHealth.cs
             if (spawnPoint != null)
             {
                 Rigidbody rb = player.GetComponent<Rigidbody>();

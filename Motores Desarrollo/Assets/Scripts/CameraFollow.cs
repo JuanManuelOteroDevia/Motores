@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;        // El Player
+    public Transform target;        
     public float sensitivity = 2f;
-    public float distance = 6f;     // distancia de la cámara
-    public float heightOffset = 1.5f; // altura sobre el jugador
+    public float distance = 6f;     
+    public float heightOffset = 1.5f;
     public float minY = -20f;
     public float maxY = 60f;
 
@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
 
         transform.position = position;
 
-        // Mirar al centro del jugador, no a la altura
+      
         transform.LookAt(target.position + Vector3.up * heightOffset);
     }
 }

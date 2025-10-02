@@ -23,7 +23,7 @@ public class Skeleton : MonoBehaviour
     private Rigidbody rb;
     private float lastDamageTime = -999f;
 
-    const string PARAM_ISRUNNING = "IsRuning"; // respetando tu Animator
+    const string PARAM_ISRUNNING = "IsRuning"; 
 
     void Awake()
     {

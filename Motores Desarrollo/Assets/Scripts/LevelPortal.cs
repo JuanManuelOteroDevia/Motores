@@ -6,7 +6,7 @@ public class LevelPortal : MonoBehaviour
     [Header("Nombre de la escena a cargar")]
     public string sceneToLoad = "TutorialLevel1";
 
-    [Header("Texto de interacción (Canvas UI)")]
+    [Header("Texto de interacciï¿½n (Canvas UI)")]
     public GameObject interactionText;
 
     private bool playerIsNear = false;
@@ -14,14 +14,14 @@ public class LevelPortal : MonoBehaviour
     void Start()
     {
         if (interactionText != null)
-            interactionText.SetActive(false); // Oculta el texto al inicio
+            interactionText.SetActive(false); 
     }
 
     void Update()
     {
         if (playerIsNear && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(sceneToLoad); // Carga la escena
+            SceneManager.LoadScene(sceneToLoad); 
         }
     }
 
@@ -31,7 +31,7 @@ public class LevelPortal : MonoBehaviour
         {
             playerIsNear = true;
             if (interactionText != null)
-                interactionText.SetActive(true); // Muestra el texto
+                interactionText.SetActive(true); 
         }
     }
 
@@ -41,7 +41,7 @@ public class LevelPortal : MonoBehaviour
         {
             playerIsNear = false;
             if (interactionText != null)
-                interactionText.SetActive(false); // Oculta el texto
+                interactionText.SetActive(false);
         }
     }
 }

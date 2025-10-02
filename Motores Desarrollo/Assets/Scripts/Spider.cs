@@ -61,8 +61,7 @@ public class Spider : MonoBehaviour
         Vector3 move = dir.normalized * moveSpeed;
         rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
 
-        // ❌ Eliminamos la rotación para que no se dé vuelta
-        // El Spider se mueve sin mirar al jugador (como si lo persiguiera con la cola)
+       
 
         animator.SetBool(PARAM_ISWALKING, true);
     }

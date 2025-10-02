@@ -11,11 +11,11 @@ public class OpcionesUI : MonoBehaviour
 
     void Start()
     {
-        // Inicializar volumen
+        
         volumenSlider.value = AudioListener.volume;
         volumenSlider.onValueChanged.AddListener(CambiarVolumen);
 
-        // Inicializar pantalla completa
+        
         pantallaCompletaToggle.isOn = Screen.fullScreen;
         ActualizarToggleLabel(Screen.fullScreen);
         pantallaCompletaToggle.onValueChanged.AddListener(CambiarPantallaCompleta);

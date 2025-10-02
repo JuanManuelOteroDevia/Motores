@@ -5,7 +5,7 @@ using System.Collections;
 public class Portal : MonoBehaviour
 {
     [Header("Configuración de escena")]
-    public string sceneToLoad = "SelectLevel"; // Asegurate que coincida con el nombre exacto
+    public string sceneToLoad = "SelectLevel"; 
 
     public float fadeDuration = 1f;
     private bool isTransitioning = false;
@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour
 
     private void Awake()
     {
-        // Crear Canvas para fade
+        
         GameObject fadeObj = new GameObject("FadeCanvas");
         Canvas canvas = fadeObj.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -29,7 +29,7 @@ public class Portal : MonoBehaviour
         rt.sizeDelta = Vector2.zero;
 
         fadeCanvas.alpha = 0;
-        DontDestroyOnLoad(fadeObj); // Persistir entre escenas
+        DontDestroyOnLoad(fadeObj); 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,14 +44,14 @@ public class Portal : MonoBehaviour
     {
         isTransitioning = true;
 
-        // Fade IN
+        
         yield return StartCoroutine(Fade(1));
 
-        // 🔑 Guardar que el jugador pasó por el portal del tutorial
+        
         PlayerPrefs.SetInt("EliminarBarrera", 1);
         PlayerPrefs.Save();
 
-        // Cargar la escena SelectLevel
+        
         SceneManager.LoadScene(sceneToLoad);
     }
 

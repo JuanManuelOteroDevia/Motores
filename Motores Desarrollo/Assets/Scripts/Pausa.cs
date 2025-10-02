@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 public class Pausa : MonoBehaviour
 {
     [Header("Referencias")]
-    public GameObject objetoPausa; // GameObject que contiene los botones
-    public MonoBehaviour scriptCamara; // Script que mueve la cámara (MouseLook, PlayerCamera, etc.)
+    public GameObject objetoPausa; 
+    public MonoBehaviour scriptCamara; 
 
     private bool juegoPausado = false;
 
     void Start()
     {
         if (objetoPausa != null)
-            objetoPausa.SetActive(false); // Oculta el menú al iniciar
+            objetoPausa.SetActive(false); 
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

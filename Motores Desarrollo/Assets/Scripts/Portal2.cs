@@ -5,8 +5,8 @@ using System.Collections;
 public class Portal2 : MonoBehaviour
 {
     [Header("Configuración de escena")]
-    public string sceneToLoad;          // Nombre de la escena a cargar
-    public float fadeDuration = 1f;     // Duración del fade
+    public string sceneToLoad;          
+    public float fadeDuration = 1f;   
 
     private bool isTransitioning = false;
     private float fadeAlpha = 0f;
@@ -24,7 +24,7 @@ public class Portal2 : MonoBehaviour
     {
         isTransitioning = true;
 
-        // Fade IN → pantalla a negro
+        
         isFading = true;
         float t = 0;
         while (t < fadeDuration)
@@ -34,14 +34,14 @@ public class Portal2 : MonoBehaviour
             yield return null;
         }
 
-        // Cargar la escena directamente
+       
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(sceneToLoad);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Fade OUT → pantalla vuelve a normal
+        
         StartCoroutine(FadeOut());
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
@@ -63,7 +63,7 @@ public class Portal2 : MonoBehaviour
     {
         if (isFading)
         {
-            // Dibujar rectángulo negro encima de todo
+            
             Color col = GUI.color;
             col.a = fadeAlpha;
             GUI.color = col;

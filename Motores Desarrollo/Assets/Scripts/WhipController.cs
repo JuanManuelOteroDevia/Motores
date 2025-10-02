@@ -32,7 +32,7 @@ public class WhipController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        // LineRenderer setup
+        
         if (lineRenderer != null)
         {
             lineRenderer.useWorldSpace = true;
@@ -48,7 +48,7 @@ public class WhipController : MonoBehaviour
             lineRenderer.endWidth = lineWidth;
         }
 
-        // AudioSource setup
+        
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -64,7 +64,7 @@ public class WhipController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) TryWhip(ray);
         if (Input.GetMouseButtonUp(0) && isSwinging) StopSwing();
 
-        // Actualizar línea solo al columpiar
+        
         if (lineRenderer != null &&
             lineRenderer.enabled &&
             whipOrigin != null &&
@@ -74,7 +74,7 @@ public class WhipController : MonoBehaviour
             lineRenderer.SetPosition(1, grapplePoint);
         }
 
-        // Movimiento hacia el grapplePoint
+        
         if (isSwinging)
         {
             Vector3 dir = (grapplePoint - transform.position).normalized;
@@ -98,10 +98,10 @@ public class WhipController : MonoBehaviour
         Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
         foreach (var h in hits)
         {
-            // 1) Enemigo (solo Tag)
+            
             if (h.collider.CompareTag("Enemy"))
             {
-                // Llamar a TakeDamage en cualquier script que lo maneje
+                
                 h.collider.SendMessage("TakeDamage", whipDamage, SendMessageOptions.DontRequireReceiver);
                 if (hitSound != null)
                     audioSource.PlayOneShot(hitSound);
@@ -109,7 +109,7 @@ public class WhipController : MonoBehaviour
                 return;
             }
 
-            // 2) Empujar Objetos
+            
             if (h.collider.CompareTag("Object"))
             {
                 Rigidbody objRb = h.collider.attachedRigidbody;
@@ -124,7 +124,7 @@ public class WhipController : MonoBehaviour
                 return;
             }
 
-            // 3) GrapplePoint
+            
             if (h.collider.CompareTag("GrapplePoint"))
             {
                 grapplePoint = h.point;
