@@ -3,19 +3,28 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Object
+  - GrapplePoint
+  - Ground
+  - EnemyObj
+  - Barrera
+  - BRT1
+  - TrapDamage
+  - TrapDeath
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - object
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - GrapplePoint
+  - Interactable
+  - Ground
+  - EnemyObj
   - 
   - 
   - 
